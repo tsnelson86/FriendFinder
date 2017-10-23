@@ -149,6 +149,22 @@
                 </select>
               </div>
               <button type="submit" data-toggle="modal" data-target="#modal" class="btn btn-primary btn-block submit"><i class="fa fa-check" style="font-size:14px"></i> Submit</button>
+              <div id="modal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      <h4 class="modal-title">Your Perfect Match</h4>
+                    </div>
+                    <div class="modal-body">
+                      <p>Content in Modal Goes here...</p>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </form>
           </div>
         </div>
@@ -166,7 +182,6 @@
 <script type="text/javascript">
 $(".submit").on("click", function(event) {
   event.preventDefault();
-  // Need to update form elements to be sent properly and update object name info.
   var newUser = {
     "customerName": $("#name").val().trim(),
     "photo": $("#image").val().trim(),
@@ -183,13 +198,11 @@ $(".submit").on("click", function(event) {
       $("#q10").val()
     ]
   };
-
   console.log(newUser);
 
-  $.post("/api/friends", newUser,
-    function(data) {
+  $.post("/api/friends", newUser, function(data) {
 
-    });
+  });
 });
 
 </script>
