@@ -157,7 +157,8 @@
                       <h4 class="modal-title">Your Perfect Match</h4>
                     </div>
                     <div class="modal-body">
-                      <p>Content in Modal Goes here...</p>
+                      <h4 id="matchName">Content in Modal Goes here...</h4>
+                      <img id="matchPhoto" src="">
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -205,6 +206,9 @@ $(".submit").on("click", function(event) {
     data: newUser,
     method: "post",
     dataType: "json",
+  }).done(function(match){
+    $("#matchName").text(match.name);
+    $("#matchPhoto").attr("src", match.photo);
   });
 });
 
